@@ -7,7 +7,7 @@ public class Main {
         totalPrice = calculation(12, 1.3f);
         System.out.println("Total price = " + totalPrice);
         Product product;
-        product = new Product();
+        product = new Product(); 
         product.setCode("A1");
         System.out.println(product.getCode());
     }
