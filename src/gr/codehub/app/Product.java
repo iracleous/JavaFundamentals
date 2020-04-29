@@ -35,7 +35,7 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
+//constructor overloading
     public Product() {
         code = "N.A.";
     }

@@ -6,72 +6,38 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        float totalPrice;
-        //method invocation, or method call, method usage
-        totalPrice = calculation(12, 1.3f);
-        System.out.println("Total price = " + totalPrice);
 
-        Product product = new Product("A1","Patates",10,10);
-        Product anotherProduct = new Product("A2", "Oranges",10,10);
-        System.out.println(product.toString());
-        System.out.println(anotherProduct.toString());
+        Ui ui = new Ui();
+        Basket basket = new Basket();
+       int choice=1;
+        do {
 
-        ArrayList<Product> products = new ArrayList<>();
-        products.add(product);
-        products.add(anotherProduct);
-       // products.add(product);
+              choice = ui.menu();
 
-        float totalProductsPrice = 0;
-        for( Product p : products){
-            totalProductsPrice += p.getPrice() * p.getQuantity();
-        }
-        System.out.println(totalProductsPrice);
+            //1. Add a product to Basket   2. Remove a product" +
+            //                "    3. Display basket     4.  Clear basket     0. Exit"
+            switch (choice) {
+                case 1:
+                    Product product = ui.createProduct();
+                    basket.addProduct(product);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    basket.displayProducts();
+                    break;
+                case 4:
+                    basket.clearProducts();
+                    break;
+                case 5:
+                    System.out.println("TotalCost= " + basket.getTotalCost());
+                    break;
 
-        for( Product p : products){
-             System.out.println( " "+ p.getCode());
-         }
+                case 0:
 
-        products.remove(0);
-        products.remove(0);
-        System.out.println(products.size());
-
-        for (int i=0;i< products.size(); i++){
-            System.out.println((i+1) + " "+ products.get(i).getPrice());
-        }
-
-        //defensive programming style example
-        int position =3;
-        if (position< products.size())
-        {
-            System.out.println(products.get(position));
-        }
-
-        // run-time error checking example
-        try {
-            System.out.println(products.get(3));
-        }
-        catch(Exception exception){
-            System.out.println("This product does not exist");
-        }
-
-        System.out.println(products);
-
-
-        if (product == anotherProduct) {
-            System.out.println("They are equal");
-        }
-        else {
-            System.out.println("They NOT are equal");
-        }
-
-        if (product.equals(anotherProduct) ) {
-            System.out.println("They are equivalent");
-        }
-        else {
-            System.out.println("They NOT are equivalent");
-        }
-
-        System.out.println(product.hashCode());
+            }
+        }while(choice!=0);
+  
     }
 
 
