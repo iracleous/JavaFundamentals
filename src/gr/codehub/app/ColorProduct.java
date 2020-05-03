@@ -1,6 +1,8 @@
 package gr.codehub.app;
 
-public class ColorProduct extends Product implements Printable{
+import java.io.Serializable;
+
+public class ColorProduct extends Product implements Printable  {
     private String color;
 
 

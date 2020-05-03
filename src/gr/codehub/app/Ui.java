@@ -32,7 +32,7 @@ public class Ui {
     }
 
     //factory method design pattern
-    public Product createProduct(){
+    public Product createProduct()  {
         String code;
         String name;
         float price;
@@ -69,7 +69,8 @@ public class Ui {
                 color = scanner.next();
                 product = new ColorProduct(code, name, price, quantity, color);
                 return product;
-            default : return null;
+            default :
+                 return null;
         }
 
 
