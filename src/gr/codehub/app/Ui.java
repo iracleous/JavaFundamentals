@@ -7,8 +7,7 @@ public class Ui {
     public Choice menu(){
         Choice returnChoice;
         System.out.println("1. Add a product to Basket   2. Remove a product" +
-                "    3. Display basket     4.  Clear basket     0. Exit" +
-                "");
+                "    3. Display basket     4.  Clear basket     0. Exit" );
 
         int choice;
         Scanner scanner = new Scanner(System.in);
@@ -38,8 +37,17 @@ public class Ui {
         String name;
         float price;
         int quantity;
+        String color;
+        String producer;
+        int productType;
 
         Scanner scanner = new Scanner(System.in);
+        System.out.println("1. for dairy 2. for color product");
+        productType  = scanner.nextInt();
+
+        System.out.println("Give the product code ");
+        code = scanner.next();
+
         System.out.println("Give the product code ");
         code = scanner.next();
         System.out.println("Give the product name ");
@@ -49,9 +57,21 @@ public class Ui {
         System.out.println("Give the product quantity ");
         quantity = scanner.nextInt();
 
-        Product product = new Product(code, name, price, quantity);
+        Product product;
+        switch(productType){
+            case 1:
+                System.out.println("Give producer ");
+                producer = scanner.next();
+                product = new DairyProduct(code, name, price, quantity, producer);
+                return product;
+            case 2:
+                System.out.println("Give color ");
+                color = scanner.next();
+                product = new ColorProduct(code, name, price, quantity, color);
+                return product;
+            default : return null;
+        }
 
-        return product;
 
     }
 

@@ -2,8 +2,15 @@ package gr.codehub.app;
 
 public class Customer {
     //fields
+    private String Name;
+    private String Phone;
 
     //constructors
+
+    public Customer(String name, String phone) {
+        Name = name;
+        Phone = phone;
+    }
 
     //getter methods, accessors
 
@@ -12,4 +19,11 @@ public class Customer {
     //toString
 
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "Name='" + Name + '\'' +
+                ", Phone='" + Phone + '\'' +
+                '}';
+    }
 }

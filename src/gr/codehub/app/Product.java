@@ -2,7 +2,7 @@ package gr.codehub.app;
 
 import java.util.Objects;
 
-public class Product {
+public abstract class Product {
     private String code;
     private String name;
     private float price;

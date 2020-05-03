@@ -34,7 +34,7 @@ public class Basket {
     }
 
     public void removeProduct(int index){
-        if (index>=0 && index <= products.size()){
+        if (index>=0 && index < products.size()){
             products.remove(index);
         }
     }
@@ -62,7 +62,7 @@ public class Basket {
         //3rd
         totalProductsPrice  = products.stream()
                 .map(p -> p.getPrice()*p.getQuantity())
-                .reduce(0.0f, (a,b) ->a+b);
+                .reduce(0.0f, (a,b) -> a+b);
 
         return totalProductsPrice;
         }
@@ -92,11 +92,11 @@ public class Basket {
                 while (scanner.hasNextLine()){
                     String line = scanner.nextLine();
                     String[] words = line.split(",");
-                    Product product = new Product(
+                    Product product = new ColorProduct(
                                     words[0],
                                     words[1],
                                     Float.parseFloat(words[2]) ,
-                                    Integer.parseInt(words[3]) );
+                                    Integer.parseInt(words[3]), "black" );
                     products.add(product);
                 }
             } catch (Exception e) {
